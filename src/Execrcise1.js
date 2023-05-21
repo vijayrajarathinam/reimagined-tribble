@@ -1,6 +1,4 @@
 import React, { useMemo, useState } from "react";
-import StudentTable from "./component/StudentTable";
-import StudentTableFb from "./component/StudentTableFb";
 const studentData = [
   {
     roleNumber: 327433678,
@@ -27,7 +25,25 @@ function App() {
 
   return (
     <div className="App">
-      <StudentTableFb studentData={studentData} />
+      <table>
+        <tbody>
+          {students.map((student) => {
+            return (
+              <tr>
+                <td>
+                  {" "}
+                  <a href={`/student/${student.roleNumber}`} target="_blank">
+                    {student.roleNumber}
+                  </a>
+                </td>
+                <td>{student.firstName}</td>
+                <td>{student.lastName}</td>
+                <td>{student.dob}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
